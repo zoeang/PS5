@@ -8,7 +8,7 @@ setwd() #This will need to be changed to match your directory
 
 
 ## This can be run many times as the code is updates
-current.code <- as.package("squaresPack")
+current.code <- as.package("integrateIt")
 load_all(current.code)
 document(current.code)
 
