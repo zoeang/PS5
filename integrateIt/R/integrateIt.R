@@ -1,14 +1,20 @@
 integrateIt<- function(x, y, a, b, rule){
-  if(rule=="Trap"){
+  if(rule=="trap"){
     library(zoo)
     trapezoid<- function(x, y, a, b, rule){
+      n<-length(x)
       a<-min(x)
       b<-max(x)
+      h<- (b-a)/n
+      midx<-3:length(x)-1
       id <- order(x)
-      AUC <- sum(diff(x[id])*abs(rollmean(y[id],2)))
-      print(c(x,y,AUC, rule))
+      AUC<- h/2*(y[1]+2*sum(y[midx])+y[length(y)])
+      trapoutput<-list(x,y,AUC, rule)
+      names(trapoutput)<-c("x", "y", "Approx. Area", "rule")
+      return(trapoutput)
     }
-  } else if (rule=="Simpson"){
+    trapezoid(x,y,a,b,rule)
+  } else if (rule=="simpsons"){
     simpsons<-function(x, y, a, b, rule){
       n<-length(x)
       a<-min(x)
@@ -19,9 +25,13 @@ integrateIt<- function(x, y, a, b, rule){
       even4<-seq(2,n-1,2)
       odd2<-seq(3,n-1,2)
       S<- h/3*(y[1]+4*sum(y[even4])+ 2*sum(y[odd2])+ y[length(y)])
-      print(c(x,y,S, rule))
+      simpoutput<-list(x,y,S, rule)
+      names(simpoutput)<-c("x", "y", "Approx. Area", "rule")
+      return(simpoutput)
     }
+    simpsons(x, y, a, b, rule)
   } else {
     print("'rule' does not properly indicate the class of the integration method.")
   }
 }
+

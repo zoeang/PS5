@@ -2,7 +2,7 @@
 setClass(Class="trapezoid",
          representation = representation(
            x="numeric", #set the class of the slot
-           y="numeric"
+           y="numeric",
            result="numeric"
          ),
          prototype= prototype(
@@ -32,7 +32,7 @@ setMethod("initialize", "trapezoid", function(.Object, ...){
 
 
 setGeneric("integrateIt",
-           function(object=c('trapezoid', 'simpsons') { #***
+           function(object=c('trapezoid', 'simpsons')) { #***
              standardGeneric("integrateIt")
            })
 #Remember: you can make the function outside of the method if that's easier
@@ -46,7 +46,7 @@ setMethod("integrateIt", "trapezoid",
 setClass(Class="simpsons",
          representation = representation(
            x="numeric", #set the class of the slot
-           y="numeric"
+           y="numeric",
            result="numeric"
          ),
          prototype= prototype(
@@ -78,4 +78,22 @@ setMethod("integrateIt", "simpsons",
             #if creating a method for an existing generic/function, use the help file to
             #find the argument for the function of the new method 
             return(object@simpsons)
+          })
+
+
+
+#print-------------------------------
+
+setMethod("print", "trapezoid",
+          function(x){ #the argument of functio MUST be the same as the argument in the generic
+            #if creating a method for an existing generic/function, use the help file to
+            #find the argument for the function of the new method 
+            return(x@trapezoid)
+          })
+
+setMethod("print", "simpsons",
+          function(x){ #the argument of functio MUST be the same as the argument in the generic
+            #if creating a method for an existing generic/function, use the help file to
+            #find the argument for the function of the new method 
+            return(x@simpsons)
           })
