@@ -1,0 +1,15 @@
+Package:https://github.com/minheeseo/PS5/blob/master/2018_PS5.pdf
+Title: Integral approximation methods
+Version:0.1
+Author: Zoe Ang
+Maintainer: Zoe Ang <zoeang@wustl.edu>
+Description: Use the trapzoid and Simpsons Rule to approximate the area under a curve
+Depends: R(>= 3.0.0)
+License: GPL (>=2)
+Suggests:
+  devtools
+  zoo
+Collate:
+  'integrateIt.R'
+  'simpsons.R'
+  'trapezoid.R'
