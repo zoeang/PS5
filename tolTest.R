@@ -12,9 +12,11 @@ tolTest<-function(fun, tolerance, rule, start, correct){
       AUC<- h/2*(y[1]+2*sum(y[midx])+y[length(y)])
       print(c(x,y,AUC, rule))
       # start and tolerance
-      i<- start
-      while (tolerance< #){
-             i=i+1
+      
+      while (tolerance< correct-AUC){
+             start=start+1
+             h<-(b-a)/start
+             AUC<-h/2*(y[1]+2*sum(y[midx])+y[length(y)])
   }
   if(fun=="simpsons")
   

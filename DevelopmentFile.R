@@ -2,11 +2,13 @@
 ## Load libraries and set working directory
 library(devtools)
 library(roxygen2)
-setwd() #This will need to be changed to match your directory
+setwd("C:\Users\zoeja\OneDrive\Documents\Spring2018\R\PS5") #This will need to be changed to match your directory
+
 
 ## This is run once when the package strcuture is first created
 
-
+create(integrateIt)
+document()
 ## This can be run many times as the code is updates
 current.code <- as.package("integrateIt")
 load_all(current.code)
