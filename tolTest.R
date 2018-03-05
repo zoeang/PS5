@@ -1,28 +1,40 @@
 tolTest<-function(fun, tolerance, rule, start, correct){
   #fun
-  if(fun=="trapezoid"){
-    integrate(trapezoid(),
-    trapezoid<- function(x, y, a, b, rule){
-      n<-length(x)
-      a<-min(x)
-      b<-max(x)
-      h<- (b-a)/n
-      midx<-3:length(x)-1
-      id <- order(x)
-      AUC<- h/2*(y[1]+2*sum(y[midx])+y[length(y)])
-      print(c(x,y,AUC, rule))
-      # start and tolerance
+  if(rule=="trapezoid"){
+    n<-length(x)
+    a<-min(x)
+    b<-max(x)
+    h<- (b-a)/n
+    midx<-3:length(x)-1
+    id <- order(x)
+    AUC<- h/2*(y[1]+2*sum(y[midx])+y[length(y)])
+
+    # start and tolerance
       
-      while (tolerance< correct-AUC){
+     while (tolerance< correct-AUC){
              start=start+1
              h<-(b-a)/start
              AUC<-h/2*(y[1]+2*sum(y[midx])+y[length(y)])
+             n<-start
+      }
   }
-  if(fun=="simpsons")
-  
-  
- 
+  if(rule=="simpsons")
+    n<-length(x)
+  a<-min(x)
+  b<-max(x)
+  h<- (b-a)/n
+  #multiple even index by 4
+  #multiple odd index by 2
+  even4<-seq(2,n-1,2)
+  odd2<-seq(3,n-1,2)
+  S<- h/3*(y[1]+4*sum(y[even4])+ 2*sum(y[odd2])+ y[length(y)])
+  while (tolerance< correct-AUC){
+    start=start+1
+    h<-(b-a)/start
+    S<-h/3*(y[1]+4*sum(y[even4])+ 2*sum(y[odd2])+ y[length(y)])
+    n<-start
   }
+  
   
   
   
@@ -34,5 +46,5 @@ tolTest<-function(fun, tolerance, rule, start, correct){
   
   
   output<-list(fun, tolerance, rule, start, correct, n, error)
-  return()
+  return(output)
 }
