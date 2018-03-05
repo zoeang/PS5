@@ -1,4 +1,4 @@
-tolTest<-function(fun, tolerance, rule, start, correct){
+tolTest<-function(fun, tolerance, rule, start, correct ){
   #fun
   if(rule=="trapezoid"){
     n<-length(x)
@@ -12,10 +12,11 @@ tolTest<-function(fun, tolerance, rule, start, correct){
     # start and tolerance
       
      while (tolerance< correct-AUC){
-             start=start+1
+             
              h<-(b-a)/start
              AUC<-h/2*(y[1]+2*sum(y[midx])+y[length(y)])
              n<-start
+             start=start+1
       }
   }
   if(rule=="simpsons")

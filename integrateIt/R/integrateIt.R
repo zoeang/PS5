@@ -9,9 +9,8 @@ integrateIt<- function(x, y, a, b, rule){
       midx<-3:length(x)-1
       id <- order(x)
       AUC<- h/2*(y[1]+2*sum(y[midx])+y[length(y)])
-      trapoutput<-list(x,y,AUC, rule)
-      names(trapoutput)<-c("x", "y", "Approx. Area", "rule")
-      return(trapoutput)
+      
+      return(new(class="trapezoid", x=x, y=y, result=AUC))
     }
     trapezoid(x,y,a,b,rule)
   } else if (rule=="simpsons"){
@@ -25,9 +24,7 @@ integrateIt<- function(x, y, a, b, rule){
       even4<-seq(2,n-1,2)
       odd2<-seq(3,n-1,2)
       S<- h/3*(y[1]+4*sum(y[even4])+ 2*sum(y[odd2])+ y[length(y)])
-      simpoutput<-list(x,y,S, rule)
-      names(simpoutput)<-c("x", "y", "Approx. Area", "rule")
-      return(simpoutput)
+      return(new(class="simpson", x=x, y=y, result=S))
     }
     simpsons(x, y, a, b, rule)
   } else {
