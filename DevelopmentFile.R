@@ -2,7 +2,7 @@
 ## Load libraries and set working directory
 library(devtools)
 library(roxygen2)
-setwd("C:/Users/zoeja/OneDrive/Documents/Spring2018/R") #This will need to be changed to match your directory
+setwd("C:/Users/zoeja/OneDrive/Documents/Spring2018/R/PS5") #This will need to be changed to match your directory
 
 getwd()
 ## This is run once when the package strcuture is first created
@@ -13,7 +13,7 @@ getwd()
 current.code <- as.package("integrateIt")
 load_all(current.code)
 document(current.code)
-
+test(current.code)
 ## Let's look at a function
 
 ## Let's try it out
@@ -23,7 +23,10 @@ squaresObject <- addSquares(x, y)
 squaresObject
 x<-seq(1,9,1)
 y<-c(2,3,7,3,800,8,9,4,1)
-  integrateIt(x,y,a,b, "simpsons")
-print.simpsons(x)
+integrateIt(x,y,a,b, "simpsons")
+print(x)
+print.simpson <- function(){
 
+}
+print(object)
 
