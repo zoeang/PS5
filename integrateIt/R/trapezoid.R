@@ -11,9 +11,8 @@ setClass(Class="trapezoid",
          )
 )
 
-setValidity("trapezoid", function(x, y){
-  test1<-length(x)==length(y) 
-
+setValidity(Class = "trapezoid", function(object){
+  test1<-length(object@x)==length(object@y) 
   if(test1 ==F){return("x and y are not of equal length")}
 }
 )

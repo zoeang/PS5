@@ -7,7 +7,8 @@ Description: Approximate a definite integral using the trapezoid or simpson rule
 Depends: R(>= 3.0.0)
 License: GPL (>=2)
 Suggests:
-  devtools
+  devtools,
+    testthat
 Collate:
   'simpsons.R'
   'trapezoid.R'

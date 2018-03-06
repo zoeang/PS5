@@ -11,12 +11,16 @@ setClass(Class="simpsons",
          )
 )
 
-setValidity("simpsons", function(x, y){
-  test1<-length(x)==length(y) 
+setValidity(Class = "simpsons", function(object){
+  test1<-length(object@x)==length(object@y) 
   if(test1 ==F){return("x and y are not of equal length")}
 }
 )
 
+setGeneric("integrateIt",
+           function(object=c('trapezoid', 'simpsons')) { #***
+             standardGeneric("integrateIt")
+           })
 setMethod("initialize", "simpsons", function(.Object, ...){
   value=callNexMethod()
   validObject(value)
