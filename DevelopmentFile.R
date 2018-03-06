@@ -17,16 +17,10 @@ test(current.code)
 ## Let's look at a function
 
 ## Let's try it out
-x<-c(1,2)
-y<-c(3,4)
-squaresObject <- addSquares(x, y)
-squaresObject
+
 x<-seq(1,9,1)
 y<-c(2,3,7,3,800,8,9,4,1)
 integrateIt(x,y,a,b, "simpsons")
 print(x)
-print.simpson <- function(){
 
-}
-print(object)
 

@@ -30,5 +30,6 @@ integrateIt<- function(x, y, a, b, rule){
   } else {
     print("'rule' does not properly indicate the class of the integration method.")
   }
+  if(!(length(x)==length(y))){print("x and y are not of equal length")}
 }
 
