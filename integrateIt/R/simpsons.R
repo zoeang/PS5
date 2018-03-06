@@ -17,15 +17,18 @@ setValidity(Class = "simpsons", function(object){
 }
 )
 
-setGeneric("integrateIt",
-           function(object=c('trapezoid', 'simpsons')) { #***
-             standardGeneric("integrateIt")
-           })
 setMethod("initialize", "simpsons", function(.Object, ...){
   value=callNexMethod()
   validObject(value)
   return(value)
 })
+
+setGeneric("integrateIt",
+           function(object=c('trapezoid', 'simpsons')) { #***
+             standardGeneric("integrateIt")
+           })
+
+#@export
 setMethod("integrateIt", "simpsons",
           function(object){ #the argument of functio MUST be the same as the argument in the generic
             #if creating a method for an existing generic/function, use the help file to
@@ -34,7 +37,7 @@ setMethod("integrateIt", "simpsons",
           })
 
 
-
+#@export
 setMethod("print", "simpsons",
           function(x){ #the argument of functio MUST be the same as the argument in the generic
             #if creating a method for an existing generic/function, use the help file to

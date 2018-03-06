@@ -28,14 +28,14 @@ setGeneric("integrateIt",
            function(object=c('trapezoid', 'simpsons')) { #***
              standardGeneric("integrateIt")
            })
-#Remember: you can make the function outside of the method if that's easier
+#@export
 setMethod("integrateIt", "trapezoid",
           function(object){ #the argument of functio MUST be the same as the argument in the generic
             #if creating a method for an existing generic/function, use the help file to
             #find the argument for the function of the new method 
             return(object@trapezoid)
           })
-
+#@export
 setMethod("print", "trapezoid",
           function(x){ #the argument of functio MUST be the same as the argument in the generic
             #if creating a method for an existing generic/function, use the help file to
