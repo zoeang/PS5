@@ -1,6 +1,10 @@
 integrateIt<- function(x, y, a, b, rule){
+  if(length(x)!=length(y)){
+    print("x and y should be of the same length")
+    stop
+    }
   if(rule=="trap"){
-    library(zoo)
+
     trapezoid<- function(x, y, a, b, rule){
       n<-length(x)
       a<-min(x)
